@@ -1,5 +1,5 @@
-const loadAllData = () => {
-    const url = `https://restcountries.com/v3.1/all`
+const loadAllData = (searchText) => {
+    const url = `https://restcountries.com/v3.1/name/${searchText}`
     fetch(url)
     .then(res => res.json())
     .then(data => showData(data.slice(0, 9)));
@@ -11,7 +11,6 @@ const showData = countries => {
     containerInfo.innerHTML = '';
     // console.log(countries[0].name)
     countries.forEach(country => {
-        console.log(country);
 
         const div = document.createElement('div');
         div.innerHTML = `
@@ -49,7 +48,7 @@ const displayCountryDetails = country =>{
         
   `;
 }
-loadAllData();
+loadAllData('a');
 
 const showAllData = () => {
   const url = `https://restcountries.com/v3.1/all`
@@ -60,3 +59,15 @@ const showAllData = () => {
     const showAllbtn = document.getElementById('show-all');
     showAllbtn.classList.add('hidden');
 }
+
+const searchBtn = () => {
+  const searchField = document.getElementById('input-field');
+  searchText = searchField.value;
+  loadAllData(searchText);
+}
+document.getElementById('input-field').addEventListener('keypress', function(e){
+  if(e.key === 'Enter') {
+    // loadAllData(searchText);
+    searchBtn();
+  }
+});

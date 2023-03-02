@@ -14,8 +14,13 @@
 <body class="container mx-auto bg-white">
     <header>
         <h1 class="text-5xl text-center font-bold text-white py-6 bg-slate-700 ">Welcome to Rest World</h1>
+
+        <div class="text-center mt-5">
+            <input class="input" type="text" placeholder="Search Your Country">
+            <button class="btn">Search</button>
+        </div>
     </header>
-    <main class="mt-20 grid justify-center">
+    <main class="mt-16 grid justify-center">
         <section id="container-info" class="grid  gap-5 md:grid-cols-3 justify-center items-center">
 
         </section>
@@ -38,8 +43,8 @@
         </div>
         </div>
         </section>
-        <div id="show-all" class="text-center mt-4 mb-4 hidden">
-            <button class="btn px-10 ">See All</button>
+        <div id="show-all" class="text-center mt-4 mb-4">
+            <button onclick="showAllData()" class="btn px-10 ">See All</button>
         </div>
     </main>
 
